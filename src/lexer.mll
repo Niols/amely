@@ -34,35 +34,91 @@
         pos_bol = pos.pos_cnum ;
         pos_cnum = 1 }
 
+  let special_tokens = [
+      "accepts"      , ACCEPTS ;
+      "addlyrics"    , ADDLYRICS;
+      "alias"        , ALIAS;
+      "alternative"  , ALTERNATIVE;
+      "book"         , BOOK;
+      "bookpart "    , BOOKPART;
+      "change"       , CHANGE;
+      "chordmode"    , CHORDMODE    ;
+      "chords"       , CHORDS       ;
+      "consists"     , CONSISTS     ;
+      "context"      , CONTEXT      ;
+      "default"      , DEFAULT      ;
+      "defaultchild" , DEFAULTCHILD ;
+      "denies"       , DENIES      ;
+      "description"  , DESCRIPTION  ;
+      "drummode"     , DRUMMODE    ;
+      "drums"        , DRUMS        ;
+      "etc"          , ETC         ;
+      "figuremode"   , FIGUREMODE;
+      "figures"      , FIGURES  ;
+      "header"       , HEADER    ;
+      "layout"       , LAYOUT     ;
+      "lyricmode"    , LYRICMODE ;
+      "lyrics"       , LYRICS     ;
+      "lyricsto"     , LYRICSTO  ;
+      "markup"       , MARKUP      ;
+      "markuplist"   , MARKUPLIST;
+      "midi"         , MIDI     ;
+      "name"         , NAME      ;
+      "new"          , NEW        ;
+      "notemode"     , NOTEMODE;
+      "override"     , OVERRIDE ;
+      "paper"        , PAPER    ;
+      "remove"       , REMOVE  ;
+      "repeat"       , REPEAT   ;
+      "rest"         , REST       ;
+      "revert"       , REVERT     ;
+      "score"        , SCORE       ;
+      "scorelines"   , SCORELINES;
+      "sequential"   , SEQUENTIAL ;
+      "set"          , SET    ;
+      "simultaneous" , SIMULTANEOUS;
+      "tempo"        , TEMPO  ;
+      "type"         , TYPE    ;
+      "unset"        , UNSET   ;
+      "versionerror" , VERSIONERROR;
+      "with"         , WITH
+    ]
 }
 
-(** This lexer is an OCaml copy of the Flex lexer in Lilypond sources:
-    https://github.com/lilypond/lilypond/blob/master/lily/lexer.ll *)
-
-let a = ['a'-'z' 'A'-'Z'] (*'\200'-'\377'*)
-let aa = a | '_'
-let n = ['0'-'9']
-let any_char = . | '\n'
-let word = a (['-' '_'] a | a)*
-let command = '\\' word
-
-(* SPECIAL category is for every letter that needs to get passed to
- * the parser rather than being redefinable by the user *)
-let special = ['-' '+' '*' '/' '=' '<' '>' '{' '}' '!' '?' '_' '^' '\'' ',' '.' ':']
-let shorthand = . | ('\\' .)
-let unsigned = n+
-let e_unsigned = '\\' n+
-let fraction = n+ '/' n+
-let int = '-'? unsigned
-let read = (int '.' n*) | ('-'? '.' n+)
-let strictreal = unsigned '.' unsigned
-let white = [' ' '\n' '\t' '\f' '\r']
-let horizontalwhite = [' ' '\t']
-let black = [^ ' ' '\n' '\t' '\f' '\r']
-let restname = ['r' 's']
-let escaped = ['n' 't' '\\' '\'' '"']
-let extender = "__"
-let hyphen = "--"
-(*let bom_utf8 = "\357\273\277"*)
-
 rule token = parse
+
+(* | "\\"  { BSLASH } *)
+(* | "\\!" { BSLASHEXCL } *)
+(* | "\\+" { BSLASHPLUS } *)
+(* | '^'   { CARET } *)
+(* | ':'   { COLON } *)
+(* | ','   { COMMA } *)
+(* | '-'   { DASH } *)
+(* | "--"  { DDASH } *)
+| ">>"  { DGREAT }
+| "<<"  { DLESS }
+(* | '.'   { DOT } *)
+(* | "__"  { DUNDERSCORE } *)
+| '='   { EQUAL }
+(* | '!'   { EXCL } *)
+(* | '>'   { GREAT } *)
+(* | "#{"  { HASHLBRACE } *)
+(* | '?'   { INTER } *)
+| '{'   { LBRACE }
+(* | '['   { LBRACKET } *)
+(* | '<'   { LESS } *)
+(* | '+'   { PLUS } *)
+| '}'   { LBRACE }
+(* | ']'   { RBRACKET } *)
+(* | '/'   { SLASH } *)
+(* | "/+"  { SLASHPLUS } *)
+(* | '*'   { STAR } *)
+(* | '\''  { QUOTE } *)
+(* | '_'   { UNDERSCORE } *)
+
+(* | "(backed-up?)" { BACKEDUP } *)
+(* | "(reparsed?)"  { REPARSED } *)
+(* | "optional?"    { OPTIONAL } *)
+(* | "scheme?"      { SCHEME } *)
+
+| _ { failwith "nooooo :-(" }

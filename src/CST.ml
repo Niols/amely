@@ -20,10 +20,15 @@
 (*                                                                            *)
 (******************************************************************************)
 
+type music_identifier = string
+type unsigned = string
+type number_identifier = string
+                       
 type lilypond =
   | Lilypond_Empty
   | Lilypond_Lilypond_ToplevelExpression of lilypond * toplevel_expression
   | Lilypond_Lilypond_Assignment of lilypond * assignment
+  | Lilypond_Lilypond_VERSIONERROR of lilypond
 
  and toplevel_expression =
    | ToplevelExpression_HeaderBlock of header_block
@@ -43,7 +48,7 @@ type lilypond =
    | AssignmentId_String of string
 
  and assignment =
-   | Assignment_AssignmentId_IdentifierInit of assignment_id * identifier_init
+   | Assignment_AssignmentId_EQUAL_IdentifierInit of assignment_id * identifier_init
 
  and identifier_init =
    | IdentifierInit_IdentifierInitNonumber of identifier_init_nonumber
@@ -54,7 +59,7 @@ type lilypond =
    | IdentifierInitNonumber_String of cstring
 
  and score_block =
-   | ScoreBlock_ScoreBody of score_body
+   | ScoreBlock_SCORE_LBRACE_ScoreBody_RBRACE of score_body
 
  and score_body =
    | ScoreBody_ScoreItems of score_items
@@ -76,14 +81,11 @@ type lilypond =
 
  and music =
    | Music_MusicAssign of music_assign
-   (* | Music_LyricElementMusic of lyric_element_music *)
-   (* | Music_PitchAsMusic of pitch_as_music *)
 
  and music_embedded =
    | MusicEmbedded_Music of music
 
  and music_assign =
-   (* | MusicAssign_SimpleMusic of simple_music *)
    | MusicAssign_CompositeMusic of composite_music
                           
  and repeated_music =
@@ -117,11 +119,11 @@ type lilypond =
    | GroupedMusicList_SequentialMusic of sequential_music
 
  and cstring = (* 'string' in the grammar *)
-   | Cstring_String of string
+   | String_String of string
 
  and simple_string =
    | SimpleString_STRING of string
 
  and unsigned_number =
-   | UnsignedNumber_Unsigned
-   | UnsignedNumber_NumberIdentifier
+   | UnsignedNumber_UNSIGNED of unsigned
+   | UnsignedNumber_NUMBERIDENTIFIER of number_identifier

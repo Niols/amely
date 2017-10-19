@@ -24,138 +24,135 @@
   open CST
 %}
 
-%token HASHLBRACE   // "#{"
-
-%token DASH         // "-"
-%token DDASH        // "--"
-%token SLASH        // "/"
-%token SLASHPLUS    // "/+"
-%token COLON        // ":"
-%token LESS         // "<"
-%token DLESS        // "<<"
-%token GREAT        // ">"
+//%token BSLASH       // "\"
+//%token BSLASHEXCL   // "\!"
+//%token BSLASHPLUS   // "\+"
+//%token CARET        // "^"
+//%token COLON        // ":"
+//%token COMMA        // ','
+//%token DASH         // "-"
+//%token DDASH        // "--"
 %token DGREAT       // ">>"
-%token BSLASHEXCL   // "\!"
-%token BSLASH       // "\"
-%token BSLASHPLUS   // "\+"
-%token CARET        // "^"
-%token UNDERSCORE   // "_"
-%token DUNDERSCORE  // "__"
-%token EXCL         // '!'
-%token QUOTE        // '''
-%token STAR         // '*'
-%token PLUS         // '+'
-%token COMMA        // ','
-%token DOT          // '.'
+%token DLESS        // "<<"
+//%token DOT          // '.'
+//%token DUNDERSCORE  // "__"
 %token EQUAL        // '='
-%token INTER        // '?'
-%token LBRACKET     // '['
-%token RBRACKET     // ']'
+//%token EXCL         // '!'
+//%token GREAT        // ">"
+//%token HASHLBRACE   // "#{"
+//%token INTER        // '?'
 %token LBRACE       // '{'
+//%token LBRACKET     // '['
+//%token LESS         // "<"
+//%token PLUS         // '+'
 %token RBRACE       // '}'
+//%token RBRACKET     // ']'
+//%token SLASH        // "/"
+//%token SLASHPLUS    // "/+"
+//%token STAR         // '*'
+//%token QUOTE        // '''
+//%token UNDERSCORE   // "_"
 
-%token BACKEDUP     // "(backed-up?)"
-%token REPARSED     // "(reparsed?)"
-%token OPTIONAL     // "optional?"
-%token SCHEME       // "scheme?"
+//%token BACKEDUP     // "(backed-up?)"
+//%token REPARSED     // "(reparsed?)"
+//%token OPTIONAL     // "optional?"
+//%token SCHEME       // "scheme?"
 
-%token ACCEPTS      // "\accepts"
-%token ADDLYRICS    // "\addlyrics"
-%token ALIAS        // "\alias"
+//%token ACCEPTS      // "\accepts"
+//%token ADDLYRICS    // "\addlyrics"
+//%token ALIAS        // "\alias"
 %token ALTERNATIVE  // "\alternative"
-%token BOOK         // "\book"
-%token BOOKPART     // "\bookpart"
-%token CHANGE       // "\change"
-%token CHORDMODE    // "\chordmode"
-%token CHORDS       // "\chords"
-%token CONSISTS     // "\consists"
-%token CONTEXT      // "\context"
-%token DEFAULT      // "\default"
-%token DEFAULTCHILD // "\defaultchild"
-%token DENIES       // "\denies"
-%token DESCRIPTION  // "\description"
-%token DRUMMODE     // "\drummode"
-%token DRUMS        // "\drums"
-%token ETC          // "\etc"
-%token FIGUREMODE   // "\figuremode"
-%token FIGURES      // "\figures"
+//%token BOOK         // "\book"
+//%token BOOKPART     // "\bookpart"
+//%token CHANGE       // "\change"
+//%token CHORDMODE    // "\chordmode"
+//%token CHORDS       // "\chords"
+//%token CONSISTS     // "\consists"
+//%token CONTEXT      // "\context"
+//%token DEFAULT      // "\default"
+//%token DEFAULTCHILD // "\defaultchild"
+//%token DENIES       // "\denies"
+//%token DESCRIPTION  // "\description"
+//%token DRUMMODE     // "\drummode"
+//%token DRUMS        // "\drums"
+//%token ETC          // "\etc"
+//%token FIGUREMODE   // "\figuremode"
+//%token FIGURES      // "\figures"
 %token HEADER       // "\header"
-%token LAYOUT       // "\layout"
-%token LYRICMODE    // "\lyricmode"
-%token LYRICS       // "\lyrics"
-%token LYRICSTO     // "\lyricsto"
-%token MARKUP       // "\markup"
-%token MARKUPLIST   // "\markuplist"
-%token MIDI         // "\midi"
-%token NAME         // "\name"
-%token NEW          // "\new"
-%token NOTEMODE     // "\notemode"
-%token OVERRIDE     // "\override"
-%token PAPER        // "\paper"
-%token REMOVE       // "\remove"
+//%token LAYOUT       // "\layout"
+//%token LYRICMODE    // "\lyricmode"
+//%token LYRICS       // "\lyrics"
+//%token LYRICSTO     // "\lyricsto"
+//%token MARKUP       // "\markup"
+//%token MARKUPLIST   // "\markuplist"
+//%token MIDI         // "\midi"
+//%token NAME         // "\name"
+//%token NEW          // "\new"
+//%token NOTEMODE     // "\notemode"
+//%token OVERRIDE     // "\override"
+//%token PAPER        // "\paper"
+//%token REMOVE       // "\remove"
 %token REPEAT       // "\repeat"
-%token REST         // "\rest"
-%token REVERT       // "\revert"
+//%token REST         // "\rest"
+//%token REVERT       // "\revert"
 %token SCORE        // "\score"
-%token SCORELINES   // "\score-lines"
+//%token SCORELINES   // "\score-lines"
 %token SEQUENTIAL   // "\sequential"
-%token SET          // "\set"
+//%token SET          // "\set"
 %token SIMULTANEOUS // "\simultaneous"
-%token TEMPO        // "\tempo"
-%token TYPE         // "\type"
-%token UNSET        // "\unset"
+//%token TEMPO        // "\tempo"
+//%token TYPE         // "\type"
+//%token UNSET        // "\unset"
 %token VERSIONERROR // "\version-error"
-%token WITH         // "\with"
+//%token WITH         // "\with"
 
-%token EOI          // "end of input"
-
-%token<string> BOOK_IDENTIFIER
-%token<string> CHORD_MODIFIER
-%token<string> CHORD_REPETITION
-%token<string> COMPOSITE
-%token<string> DRUM_PITCH
-%token<string> DURATION_ARG
-%token<string> DURATION_IDENTIFIER
-%token<string> E_UNSIGNED
-%token<string> ERROR                   // error
-%token<string> EVENT_FUNCTION
-%token<string> EVENT_IDENTIFIER
-%token<string> EXPECT_NO_MORE_ARGS
-%token<string> FIGURE_CLOSE
-%token<string> FIGURE_OPEN
-%token<string> FRACTION
-%token<string> LOOKUP_IDENTIFIER
-%token<string> LYRIC_ELEMENT
-%token<string> MARKUP_FUNCTION
-%token<string> MARKUP_IDENTIFIER
-%token<string> MARKUP_LIST_FUNCTION
-%token<string> MARKUPLIST_IDENTIFIER
-%token<string> MULTI_MEASURE_REST
-%token<string> MUSIC_FUNCTION
+//%token<string> BOOK_IDENTIFIER
+//%token<string> CHORD_MODIFIER
+//%token<string> CHORD_REPETITION
+//%token<string> COMPOSITE
+//%token<string> DRUM_PITCH
+//%token<string> DURATION_ARG
+//%token<string> DURATION_IDENTIFIER
+//%token<string> E_UNSIGNED
+//%token<string> ERROR                   // error
+//%token<string> EVENT_FUNCTION
+//%token<string> EVENT_IDENTIFIER
+//%token<string> EXPECT_NO_MORE_ARGS
+//%token<string> FIGURE_CLOSE
+//%token<string> FIGURE_OPEN
+//%token<string> FRACTION
+//%token<string> LOOKUP_IDENTIFIER
+//%token<string> LYRIC_ELEMENT
+//%token<string> MARKUP_FUNCTION
+//%token<string> MARKUP_IDENTIFIER
+//%token<string> MARKUP_LIST_FUNCTION
+//%token<string> MARKUPLIST_IDENTIFIER
+//%token<string> MULTI_MEASURE_REST
+//%token<string> MUSIC_FUNCTION
 %token<string> MUSIC_IDENTIFIER
-%token<string> NOTENAME_PITCH
+//%token<string> NOTENAME_PITCH
 %token<string> NUMBER_IDENTIFIER
-%token<string> PITCH_IDENTIFIER
-%token<string> PREC_BOT
-%token<string> PREC_TOP
-%token<string> REAL
-%token<string> RESTNAME
-%token<string> SCM_ARG
-%token<string> SCM_FUNCTION
-%token<string> SCM_IDENTIFIER
-%token<string> SCM_TOKEN
+//%token<string> PITCH_IDENTIFIER
+//%token<string> PREC_BOT
+//%token<string> PREC_TOP
+//%token<string> REAL
+//%token<string> RESTNAME
+//%token<string> SCM_ARG
+//%token<string> SCM_FUNCTION
+//%token<string> SCM_IDENTIFIER
+//%token<string> SCM_TOKEN
 %token<string> STRING
-%token<string> SYMBOL
-%token<string> SYMBOL_LIST
-%token<string> TONICNAME_PITCH
-%token<string> UNARY_MINUS
+//%token<string> SYMBOL
+//%token<string> SYMBOL_LIST
+//%token<string> TONICNAME_PITCH
+//%token<string> UNARY_MINUS
 %token<string> UNSIGNED
 
-%start<AST.lilypond> lilypond
+%start<CST.lilypond> lilypond
 %%
 
 lilypond:
-| EOI                                                  { Lilypond_Empty }
+| /* empty */                                          { Lilypond_Empty }
 | l=lilypond te=toplevel_expression                    { Lilypond_Lilypond_ToplevelExpression (l, te) }
 | l=lilypond a=assignment                              { Lilypond_Lilypond_Assignment (l, a) }
 // | lilypond error
@@ -178,7 +175,7 @@ toplevel_expression:
 
 lilypond_header_body:
 | /* empty */                                          { LilypondHeaderBody_Empty }
-| lhb=lilypond_header_body a=assignment                { LilyondHeaderBody_LilypondHeaderBody_Assignment (lhb, a) }
+| lhb=lilypond_header_body a=assignment                { LilypondHeaderBody_LilypondHeaderBody_Assignment (lhb, a) }
 // | lilypond_header_body SCM_TOKEN
 // | lilypond_header_body embedded_scm_active
 ;
@@ -197,13 +194,13 @@ assignment_id:
 ;
 
 assignment:
-| assignment_id EQUAL identifier_init                    { Assignment_AssignmentId_EQUAL_IdentifierInit (ai, ii) }
+| ai=assignment_id EQUAL ii=identifier_init            { Assignment_AssignmentId_EQUAL_IdentifierInit (ai, ii) }
 // | assignment_id DOT property_path EQUAL identifier_init
 // | assignment_id COMMA property_path EQUAL identifier_init
 ;
 
 identifier_init:
-| identifier_init_nonumber                             { IdentifierInit_IdentifierInitNonumber iin }
+| iin=identifier_init_nonumber                         { IdentifierInit_IdentifierInitNonumber iin }
 // | number_expression
 // | symbol_list_part_bare DOT property_path
 // | symbol_list_part_bare COMMA property_path
@@ -220,7 +217,7 @@ identifier_init_nonumber:
 // | music_assign
 // | pitch_or_music
 // | FRACTION
-| s=cstring                                            { IdentifierInitNonumber_Cstring s }
+| s=cstring                                            { IdentifierInitNonumber_String s }
 // | embedded_scm
 // | partial_markup
 // | full_markup_list
@@ -320,13 +317,13 @@ grouped_music_list:
 ;
 
 cstring:
-| s=STRING                                             { Cstring_String s }
+| s=STRING                                             { String_String s }
 // | s=SYMBOL
 // | full_markup
 ;
 
 simple_string:
-| s=STRING                                             { SimpleString_String s }
+| s=STRING                                             { SimpleString_STRING s }
 // | SYMBOL
 // | embedded_scm_bare
 ;
